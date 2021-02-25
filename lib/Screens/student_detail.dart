@@ -1,5 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intro_to_db/Utilities/sql_helper.dart';
+import 'dart:async';
+import 'package:intro_to_db/models/student.dart';
+import 'package:sqflite/sqflite.dart';
+import 'package:intro_to_db/Screens/students_list.dart';
+
 
 class StudentDetail extends StatefulWidget {
   String screenTitle ;

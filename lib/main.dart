@@ -5,9 +5,9 @@ import 'Screens/students_list.dart';
 
 void main() {
 runApp(MyApp());
-  print("start the Application");
-  getFileContent();
-  print ("End The Application");
+  // print("start the Application");
+  // getFileContent();
+  // print ("End The Application");
 }
 
 getFileContent() async{
