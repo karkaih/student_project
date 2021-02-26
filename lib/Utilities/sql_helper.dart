@@ -1,6 +1,6 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:path_provider/path_provider.dart';
-import 'dart:async'
+import 'dart:async';
 import 'dart:io';
 import 'package:intro_to_db/models/student.dart';
 
@@ -61,7 +61,7 @@ class SQL_Helper {
   Future<List<Map<String, dynamic>>> getStudentMapList() async {
     Database db = await this.database;
 //var result1 = await db.rawQuery("SELECT * FROM $tableName ORDER BY $_id ASC ") ;
-    var result = await db.query(tableName, orderBy: _id + "ASC");
+    var result = await db.query(tableName, orderBy: _id + " ASC");
     return result;
   }
 
@@ -107,7 +107,7 @@ class SQL_Helper {
     var studentMapList = await getStudentMapList();
     int count = studentMapList.length;
     List<Student> students = new List<Student> ();
-    for (int i = 0; i <= count; i++) {
+    for (int i = 0; i < count; i++) {
       students.add(Student.getMap(studentMapList[i]));
     }
     return students;

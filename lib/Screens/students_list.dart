@@ -40,8 +40,8 @@ class StudentsState extends State<StudentList> {
       body: getStudentsList(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          navigateToStudent("Add New Student");
-          updateListView();
+          navigateToStudent(Student("", "", 1, ""),"Add New Student");
+
         },
         tooltip: "ADD Student",
         child: Icon(Icons.add),
@@ -74,7 +74,7 @@ class StudentsState extends State<StudentList> {
                   },
                 ),
                 onTap: () {
-                  navigateToStudent("Edit Student");
+                  navigateToStudent(this.studentList[position],"Edit Student");
                 },
               ));
         });
@@ -145,9 +145,12 @@ class StudentsState extends State<StudentList> {
   }
 
   // Navigate to other page passing name
-  void navigateToStudent(String appTitle) {
-    Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return StudentDetail(appTitle);
+  void navigateToStudent(Student student ,String appTitle) async{
+  bool result = await  Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return StudentDetail(student ,appTitle);
     }));
+  if(result ){
+    updateListView();
+  }
   }
 }
